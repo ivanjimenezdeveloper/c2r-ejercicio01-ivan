@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function App() {
-  const clasesGlobico = "fab fa-fly p-absolute";
+  const clasesGlobico = "fab fa-fly p-absolute animado";
   let timer;
   const [puntuacion, setPuntuacion] = useState(0);
   const posicionYAleatoria = () =>
