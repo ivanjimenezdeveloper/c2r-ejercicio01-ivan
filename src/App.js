@@ -3,6 +3,7 @@ import { useState } from "react";
 function App() {
   const clasesGlobico = "fab fa-fly p-absolute";
   let timer;
+  const [puntuacion, setPuntuacion] = useState(0);
   const posicionYAleatoria = () =>
     Math.floor(Math.random() * window.innerHeight);
   const posicionXAleatoria = () =>
@@ -18,16 +19,22 @@ function App() {
     timer = setTimeout(
       () =>
         setEjesPosicion({ y: posicionYAleatoria(), x: posicionXAleatoria() }),
-      500
+      300
     );
   };
 
+  const aumentarPuntuacion = () => setPuntuacion(puntuacion + 1);
+
   return (
     <div className="App">
+      <p>
+        Puntuacion <span>{puntuacion}</span>
+      </p>
       <i
         className={clasesGlobico}
         style={{ top: ejesPosicion.y, left: ejesPosicion.x }}
         onMouseOver={posicionAleatoria}
+        onClick={aumentarPuntuacion}
       ></i>
     </div>
   );
